@@ -3,146 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>System_Override.exe</title>
+    <title>Special for Nanaa ✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Pacifico&family=Caveat:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #0a0a0a;
-            color: #00ff41; /* Warna hijau Matrix */
-            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            background: #fff0f3;
+            font-family: 'Quicksand', sans-serif;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            overflow: hidden;
-        }
-
-        #terminal {
-            width: 80%;
-            max-width: 700px;
-            height: 400px;
-            background: rgba(0, 0, 0, 0.9);
-            border: 1px solid #00ff41;
-            padding: 20px;
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
-            overflow-y: auto;
-            position: relative;
-        }
-
-        .cursor {
-            display: inline-block;
-            width: 10px;
-            height: 20px;
-            background: #00ff41;
-            animation: blink 0.8s infinite;
-            vertical-align: middle;
-        }
-
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
-        }
-
-        .success { color: white; text-shadow: 0 0 5px #fff; }
-        .warning { color: #ff3e3e; }
-        
-        #final-msg {
-            display: none;
+            min-height: 100vh;
             text-align: center;
-            animation: fadeIn 2s;
+            overflow-x: hidden;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .container {
+            width: 85%;
+            max-width: 350px;
+            background: white;
+            padding: 40px 20px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(255, 182, 193, 0.4);
+            position: relative;
+            z-index: 10;
         }
 
-        pre { font-size: 10px; line-height: 10px; }
+        h1 { font-family: 'Pacifico', cursive; color: #ff748c; margin-bottom: 10px; }
+        .nickname { font-family: 'Caveat', cursive; font-size: 2.5em; color: #ff4d6d; margin-top: 0; }
+        p { color: #594e50; font-size: 1em; line-height: 1.6; }
+
+        .hidden { display: none; }
+
+        .btn {
+            background: linear-gradient(45deg, #ff748c, #ff4d6d);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-top: 20px;
+            box-shadow: 0 8px 20px rgba(255, 77, 109, 0.3);
+            transition: 0.3s;
+        }
+
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(255, 77, 109, 0.5); }
+
+        .decor { font-size: 50px; margin-bottom: 10px; display: block; }
+        
+        /* Animasi Bunga Jatuh Sederhana */
+        .heart {
+            position: absolute;
+            color: #ffb3c1;
+            font-size: 20px;
+            user-select: none;
+            z-index: 1;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to { transform: translateY(100vh) rotate(360deg); }
+        }
     </style>
 </head>
 <body>
 
-    <div id="terminal">
-        <div id="output"></div>
-        <span id="cursor" class="cursor"></span>
+    <div id="cover" class="container">
+        <span class="decor">🌸</span>
+        <p>Halo, ada pesan kecil buat...</p>
+        <h2 class="nickname">Nanaa</h2>
+        <button class="btn" onclick="openSurprise()">Buka Pesannya ✨</button>
     </div>
 
-    <div id="final-msg">
-        <h1 class="success">ACCESS GRANTED!</h1>
-        <pre>
-  _    _                       ____  _      _   _      _             
- | |  | |                     |  _ \(_)    | | | |    | |            
- | |__| | __ _ _ __  _ __  _  | |_) |_ _ __| |_| |__  | | __ _ _   _ 
- |  __  |/ _` | '_ \| '_ \| | |  _ <| | '__| __| '_ \ | |/ _` | | | |
- | |  | | (_| | |_) | |_) | | | |_) | | |  | |_| | | || | (_| | |_| |
- |_|  |_|\__,_| .__/| .__/|_| |____/|_|_|   \__|_| |_||_|\__,_|\__, |
-              | |   | |                                         __/ |
-              |_|   |_|                                        |___/ 
-        </pre>
-        <h2 style="color: white;">Selamat Ulang Tahun, Bro! 🥳</h2>
-        <p>Sistem mendeteksi bahwa hari ini adalah hari spesialmu.</p>
-        <p style="font-size: 0.8em; color: #888;">> Success: Wish_You_All_The_Best.sh executed</p>
+    <div id="main-content" class="container hidden">
+        <span class="decor">🎂</span>
+        <h1>Happy Birthday!</h1>
+        <h2 class="nickname">Nanaa ✨</h2>
+        
+        <p>Selamat ulang tahun ya! Semoga di usia yang baru ini, Nanaa makin bahagia, sehat selalu, dan semua yang disemogakan segera terwujud.</p>
+        
+        <p style="font-size: 0.9em; color: #ff748c; font-weight: bold;">Keep shining, Nanaa! 💖</p>
+        
+        <p style="font-size: 0.8em; margin-top: 30px; color: #a39396;">- Dari Temanmu -</p>
     </div>
-
-    <audio id="clickSound" src="https://www.soundjay.com/communication/sounds/typing-sound-01.mp3"></audio>
 
     <script>
-        const output = document.getElementById('output');
-        const terminal = document.getElementById('terminal');
-        const finalMsg = document.getElementById('final-msg');
-        const cursor = document.getElementById('cursor');
-
-        const lines = [
-            "> Initializing connection...",
-            "> Connection established at 127.0.0.1",
-            "> Searching for 'Subject_Birthday' in database...",
-            "> [ERROR] Unauthorized access attempt detected",
-            "> Bypassing firewall...",
-            "> Firewall disabled.",
-            "> Accessing private_memories/photos/...",
-            "> Loading emotional_data.dll...",
-            "> Scanning target: SAHABAT_TERBAIK",
-            "> Status: AWESOME PERSON DETECTED",
-            "> Preparing surprise sequence...",
-            "> 3...",
-            "> 2...",
-            "> 1...",
-            "> EXECUTE BIRTHDAY_WISH.EXE"
-        ];
-
-        let lineIndex = 0;
-
-        function typeLine() {
-            if (lineIndex < lines.length) {
-                let div = document.createElement('div');
-                div.innerHTML = lines[lineIndex];
-                
-                // Beri warna merah untuk baris error/warning
-                if(lines[lineIndex].includes("ERROR") || lines[lineIndex].includes("Bypassing")) {
-                    div.className = "warning";
-                }
-
-                output.appendChild(div);
-                terminal.scrollTop = terminal.scrollHeight;
-                lineIndex++;
-                
-                // Kecepatan mengetik tiap baris (random biar natural)
-                setTimeout(typeLine, Math.random() * 500 + 300);
-            } else {
-                setTimeout(showFinal, 1000);
-            }
+        function openSurprise() {
+            document.getElementById('cover').classList.add('hidden');
+            document.getElementById('main-content').classList.remove('hidden');
+            document.body.style.background = '#ffe5ec';
+            
+            // Jalankan hujan hati
+            setInterval(createHeart, 300);
         }
 
-        function showFinal() {
-            terminal.style.display = 'none';
-            cursor.style.display = 'none';
-            finalMsg.style.display = 'block';
-            document.body.style.backgroundColor = '#1a1a1a';
-        }
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '🌸'; // Bisa diganti ❤️ atau ✨
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            heart.style.opacity = Math.random();
+            document.body.appendChild(heart);
 
-        // Mulai setelah delay sedikit
-        setTimeout(typeLine, 1000);
+            setTimeout(() => { heart.remove(); }, 5000);
+        }
     </script>
 </body>
 </html>
