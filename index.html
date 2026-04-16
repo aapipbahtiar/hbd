@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System_Override.exe</title>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #00ff41; /* Warna hijau Matrix */
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #terminal {
+            width: 80%;
+            max-width: 700px;
+            height: 400px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 1px solid #00ff41;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background: #00ff41;
+            animation: blink 0.8s infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .success { color: white; text-shadow: 0 0 5px #fff; }
+        .warning { color: #ff3e3e; }
+        
+        #final-msg {
+            display: none;
+            text-align: center;
+            animation: fadeIn 2s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        pre { font-size: 10px; line-height: 10px; }
+    </style>
+</head>
+<body>
+
+    <div id="terminal">
+        <div id="output"></div>
+        <span id="cursor" class="cursor"></span>
+    </div>
+
+    <div id="final-msg">
+        <h1 class="success">ACCESS GRANTED!</h1>
+        <pre>
+  _    _                       ____  _      _   _      _             
+ | |  | |                     |  _ \(_)    | | | |    | |            
+ | |__| | __ _ _ __  _ __  _  | |_) |_ _ __| |_| |__  | | __ _ _   _ 
+ |  __  |/ _` | '_ \| '_ \| | |  _ <| | '__| __| '_ \ | |/ _` | | | |
+ | |  | | (_| | |_) | |_) | | | |_) | | |  | |_| | | || | (_| | |_| |
+ |_|  |_|\__,_| .__/| .__/|_| |____/|_|_|   \__|_| |_||_|\__,_|\__, |
+              | |   | |                                         __/ |
+              |_|   |_|                                        |___/ 
+        </pre>
+        <h2 style="color: white;">Selamat Ulang Tahun, Bro! 🥳</h2>
+        <p>Sistem mendeteksi bahwa hari ini adalah hari spesialmu.</p>
+        <p style="font-size: 0.8em; color: #888;">> Success: Wish_You_All_The_Best.sh executed</p>
+    </div>
+
+    <audio id="clickSound" src="https://www.soundjay.com/communication/sounds/typing-sound-01.mp3"></audio>
+
+    <script>
+        const output = document.getElementById('output');
+        const terminal = document.getElementById('terminal');
+        const finalMsg = document.getElementById('final-msg');
+        const cursor = document.getElementById('cursor');
+
+        const lines = [
+            "> Initializing connection...",
+            "> Connection established at 127.0.0.1",
+            "> Searching for 'Subject_Birthday' in database...",
+            "> [ERROR] Unauthorized access attempt detected",
+            "> Bypassing firewall...",
+            "> Firewall disabled.",
+            "> Accessing private_memories/photos/...",
+            "> Loading emotional_data.dll...",
+            "> Scanning target: SAHABAT_TERBAIK",
+            "> Status: AWESOME PERSON DETECTED",
+            "> Preparing surprise sequence...",
+            "> 3...",
+            "> 2...",
+            "> 1...",
+            "> EXECUTE BIRTHDAY_WISH.EXE"
+        ];
+
+        let lineIndex = 0;
+
+        function typeLine() {
+            if (lineIndex < lines.length) {
+                let div = document.createElement('div');
+                div.innerHTML = lines[lineIndex];
+                
+                // Beri warna merah untuk baris error/warning
+                if(lines[lineIndex].includes("ERROR") || lines[lineIndex].includes("Bypassing")) {
+                    div.className = "warning";
+                }
+
+                output.appendChild(div);
+                terminal.scrollTop = terminal.scrollHeight;
+                lineIndex++;
+                
+                // Kecepatan mengetik tiap baris (random biar natural)
+                setTimeout(typeLine, Math.random() * 500 + 300);
+            } else {
+                setTimeout(showFinal, 1000);
+            }
+        }
+
+        function showFinal() {
+            terminal.style.display = 'none';
+            cursor.style.display = 'none';
+            finalMsg.style.display = 'block';
+            document.body.style.backgroundColor = '#1a1a1a';
+        }
+
+        // Mulai setelah delay sedikit
+        setTimeout(typeLine, 1000);
+    </script>
+</body>
+</html>
